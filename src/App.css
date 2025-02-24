@@ -1,42 +1,89 @@
-#root {
-  max-width: 1280px;
-  margin: 0 auto;
-  padding: 2rem;
-  text-align: center;
+* {
+    margin:0;
+    padding:0;
+}
+.main-title {
+    font-family: 'Roboto Condensed', sans-serif;
+    font-size: 60px;
+    font-weight: 300;
+    text-align: center;
+    line-height: 1.2;
+    color: white;
+    margin:20px;
+}
+
+.order-btn {
+    background-color: #FDC913;
+    font-family:"Roboto Condensed" , sans-serif;
+    border-radius: 100px;
+    border: none;
+    width: 150px;
+    height: 2.5rem;
+    cursor: pointer;
+}
+.order-btn:hover {
+    background-color: #e6b800;
+    transform: scale(1.05);
+}
+
+.order-btn:active {
+    background-color: #d4a600;
+    transform: scale(0.95);
+}
+
+.main-container {
+    background-image: url("/images/iteration-1-images/home-banner.png");
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    width: 100vw;  
+    height: 100vh; 
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+}
+.order-header {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    background-color: #CE2829;
+    color: white;
+    padding: 20px 0;
+    text-align: center;
+}
+
+.header-container {
+    display: flex;
+    align-items: center;
+    justify-content: center; 
+    gap: 15px;
 }
 
 .logo {
-  height: 6em;
-  padding: 1.5em;
-  will-change: filter;
-  transition: filter 300ms;
-}
-.logo:hover {
-  filter: drop-shadow(0 0 2em #646cffaa);
-}
-.logo.react:hover {
-  filter: drop-shadow(0 0 2em #61dafbaa);
+    margin-top: 30px;
+    margin-bottom: 30px;
+    height: 50px; 
+    width: auto;
 }
 
-@keyframes logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+
+.breadcrumb {
+    font-size: 14px;
+    color: white;
+    position: absolute;
+    left: 10%;
+    bottom: 10px;
+    text-align: left;
 }
 
-@media (prefers-reduced-motion: no-preference) {
-  a:nth-of-type(2) .logo {
-    animation: logo-spin infinite 20s linear;
-  }
+/* Aktif breadcrumb */
+.breadcrumb .active {
+    font-weight: bold;
 }
 
-.card {
-  padding: 2em;
-}
-
-.read-the-docs {
-  color: #888;
+.order-content {
+    margin-top: 100px; 
+    padding: 20px;
 }
