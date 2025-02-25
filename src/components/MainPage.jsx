@@ -15,7 +15,7 @@ export default function MainPage() {
       >
           <img style={{paddingTop:"70px", width:"250px"}}src={mainLogo} alt="Anasayfa Logo" />
           <h1 className="main-title">KOD ACIKTIRIR <br/>PİZZA, DOYURUR</h1>
-          <button className="order-btn" onClick={handleClick}>ACIKTIM</button>
+          <button className="hungry-btn" onClick={handleClick}>ACIKTIM</button>
       </div>
     );
 }
