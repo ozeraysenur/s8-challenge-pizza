@@ -162,3 +162,36 @@ button {
     flex-direction: flex-end;
     font-size: 14px;
   }
+
+  .size-dough {
+    display: flex;
+    justify-content: space-between;
+    gap: 20px;
+    align-items: flex-start; 
+  }
+  
+
+  
+  .counter {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    flex:1;
+  }
+  
+  .order-summary {
+    width: 250px; 
+    text-align: right;
+    flex:4;
+  }
+  
+  .order-summary Card {
+    width: 100%; 
+  }
+  .order-container {
+    display: flex;
+    flex-direction: row; 
+    align-items: center; 
+    justify-content: space-around; 
+    gap:20px;
+  }

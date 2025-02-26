@@ -77,31 +77,33 @@ export default function OrderPage() {
 
                   <Form className="pizza-form">
                     <section className="section-form">
-                      <FormGroup>
-                        <Label><strong>Boyut Seç <span style={{ color: "red" }}> *</span></strong></Label>
-                        <FormGroup check>
-                          <Input name="size" type="radio" value="S" onChange={handleChange} />
-                          <Label check>Küçük</Label>
+                      <div class="size-dough">
+                        <FormGroup>
+                          <Label><strong>Boyut Seç <span style={{ color: "red" }}> *</span></strong></Label>
+                          <FormGroup check>
+                            <Input name="size" type="radio" value="S" onChange={handleChange} />
+                            <Label check>Küçük</Label>
+                          </FormGroup>
+                          <FormGroup check>
+                            <Input name="size" type="radio" value="M" onChange={handleChange} />
+                            <Label check>Orta</Label>
+                          </FormGroup>
+                          <FormGroup check>
+                            <Input name="size" type="radio" value="L" onChange={handleChange} />
+                            <Label check>Büyük</Label>
+                          </FormGroup>
                         </FormGroup>
-                        <FormGroup check>
-                          <Input name="size" type="radio" value="M" onChange={handleChange} />
-                          <Label check>Orta</Label>
-                        </FormGroup>
-                        <FormGroup check>
-                          <Input name="size" type="radio" value="L" onChange={handleChange} />
-                          <Label check>Büyük</Label>
-                        </FormGroup>
-                      </FormGroup>
 
-                      <FormGroup>
-                        <Label for="dough"><strong>Hamur Seç <span style={{ color: "red" }}> * </span></strong></Label>
-                        <Input id="dough" name="dough" type="select" onChange={handleChange}>
-                          <option value="empty"><strong>Hamur Kalınlığı</strong></option>
-                          <option value="thin">İnce</option>
-                          <option value="medium">Orta</option>
-                          <option value="thick">Kalın</option>
-                        </Input>
-                      </FormGroup>
+                        <FormGroup>
+                          <Label for="dough"><strong>Hamur Seç <span style={{ color: "red" }}> * </span></strong></Label>
+                          <Input id="dough" name="dough" type="select" onChange={handleChange}>
+                            <option value="empty"><strong>Hamur Kalınlığı</strong></option>
+                            <option value="thin">İnce</option>
+                            <option value="medium">Orta</option>
+                            <option value="thick">Kalın</option>
+                          </Input>
+                        </FormGroup>
+                      </div>
                       <FormCheckBox handleChange={handleChange} />
                       <FormGroup>
                         <Label>Adınız</Label>
@@ -115,7 +117,8 @@ export default function OrderPage() {
                         placeholder="Siparişine eklemek istediğin bir not var mı?"
                       />
                     </FormGroup>
-                    <div className="quantity-selector">
+                  <div className="order-container">
+                    <div className="counter">
                       <button>-</button>
                       <span>1</span>
                       <button>+</button>
@@ -125,10 +128,11 @@ export default function OrderPage() {
                         <CardBody>
                           <h4>Sipariş Toplamı</h4>
                           <p>Seçimler <span>25.00₺</span></p>
-                          <p className="total-price">Toplam <span>110.50₺</span></p>
+                          <p className="total-price" style={{color:"#CE2829"}}>Toplam <span>110.50₺</span></p>
                         </CardBody>
                         <button style={{backgroundColor:"#FDC913", border:"none"}} onClick={handleOrderButton}>SİPARİŞ VER</button>
                       </Card>
+                    </div>
                     </div>
                     </section>
                   </Form>
