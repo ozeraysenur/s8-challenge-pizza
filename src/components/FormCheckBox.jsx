@@ -21,6 +21,7 @@ export default function FormCheckBox ({ handleChange, errors }){
                     value={ingredient}
                     onChange={handleChange}
                     invalid={errors.ingredient}
+                    data-cy={`checkbox-${index}`}
                 />
                 <Label check htmlFor={index}>{ingredient}</Label>
                 </FormGroup>

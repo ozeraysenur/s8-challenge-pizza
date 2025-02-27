@@ -2,6 +2,7 @@ import React, { useState, useEffect } from "react";
 import mainLogo from "../../images/iteration-1-images/logo.svg";
 import { Form, FormGroup, Label, Input, Button, Card, CardBody, FormFeedback, CardText } from "reactstrap";
 import FormCheckBox from "./FormCheckBox";
+import axios from "axios";
 import { useHistory } from "react-router-dom/cjs/react-router-dom.min";
 
 const initialValues = {
@@ -65,8 +66,14 @@ export default function OrderPage() {
 
   const handleSubmit = (event) => {
     event.preventDefault();
+  
     if (!Object.values(errors).includes(true)) {
-      history.push("/success");
+      axios.post("https://reqres.in/api/pizza", formData)
+      .then((response) => {
+        console.log("Sipariş Özeti:", response.data); 
+        history.push("/success");
+      })
+      .catch((error) => console.error("Sipariş gönderilirken hata oluştu:", error));
     }
   };
 
@@ -104,18 +111,18 @@ export default function OrderPage() {
                           </strong>
                         </Label>
                         <FormGroup check>
-                          <Input name="size" type="radio" value="S" onChange={handleChange} checked={formData.size === "S"} />
+                          <Input name="size" type="radio" data-cy="size-s" value="S" onChange={handleChange} checked={formData.size === "S"} />
                           <Label check>Küçük</Label>
                         </FormGroup>
                         <FormGroup check>
-                          <Input name="size" type="radio" value="M" onChange={handleChange} checked={formData.size === "M"} />
+                          <Input name="size" type="radio" data-cy="size-m" value="M" onChange={handleChange} checked={formData.size === "M"} />
                           <Label check>Orta</Label>
                         </FormGroup>
                         <FormGroup check>
-                          <Input name="size" type="radio" value="L" onChange={handleChange} checked={formData.size === "L"} />
+                          <Input name="size" type="radio" data-cy="size-l" value="L" onChange={handleChange} checked={formData.size === "L"} />
                           <Label check>Büyük</Label>
                         </FormGroup>
-                        {errors.size && <FormFeedback style={{ display: "block" }}>{errorMessages.size}</FormFeedback>}
+                        {errors.size && <FormFeedback  data-cy="error-size" style={{ display: "block" }}>{errorMessages.size}</FormFeedback>}
                       </FormGroup>
 
                       <FormGroup>
@@ -124,7 +131,7 @@ export default function OrderPage() {
                             Hamur Seç <span style={{ color: "red" }}> * </span>
                           </strong>
                         </Label>
-                        <Input id="dough" name="dough" type="select" onChange={handleChange} value={formData.dough}>
+                        <Input id="dough" name="dough" type="select" onChange={handleChange} value={formData.dough} data-cy="input-dough">
                           <option value="empty">Hamur Kalınlığı Seç</option>
                           <option value="thin">İnce</option>
                           <option value="medium">Orta</option>
@@ -145,6 +152,7 @@ export default function OrderPage() {
                         value={formData.isim}
                         onChange={handleChange}
                         invalid={errors.isim}
+                        data-cy="input-name"
                       />
                       {errors.isim && <FormFeedback>{errorMessages.isim}</FormFeedback>}
                     </FormGroup>
@@ -169,7 +177,7 @@ export default function OrderPage() {
                               Toplam <span>110.50₺</span>
                             </p>
                           </CardBody>
-                          <Button style={{ backgroundColor: "#FDC913", border: "none" }} type="submit">
+                          <Button style={{ backgroundColor: "#FDC913", border: "none" }} type="submit" data-cy="button-submit">
                             SİPARİŞ VER
                           </Button>
                         </Card>
