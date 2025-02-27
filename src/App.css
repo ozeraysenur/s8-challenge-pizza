@@ -170,8 +170,6 @@ button {
     align-items: flex-start; 
   }
   
-
-  
   .counter {
     display: flex;
     align-items: center;
@@ -184,7 +182,6 @@ button {
     text-align: right;
     flex:4;
   }
-  
   .order-summary Card {
     width: 100%; 
   }
